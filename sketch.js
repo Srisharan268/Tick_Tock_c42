@@ -2,6 +2,7 @@ var hr,minu,sec;
 var hrAngle,minAngle,secAngle;
 var minH,secH,hrH;
 var img,bg;
+var hrn,minn;
 
 function preload() { 
   minH = loadImage("minHand.png");
@@ -33,6 +34,9 @@ function draw() {
   secAngle = map(sec,0,60,0,360);
   minAngle = map(minu,0,60,0,360);
   hrAngle = map(hr,0,12,0,360);
+  
+  hrn = hrAngle+map(minu,0,60,0,30);
+  minn = minAngle+map(sec,0,60,0,6);
 
   translate(250,250);
   imageMode(CENTER);
@@ -45,12 +49,12 @@ function draw() {
   pop();
   
   push();
-  rotate(minAngle);
+  rotate(minn);
   image(minH,0,0);
   pop();
 
   push();
-  rotate(hrAngle);
+  rotate(hrn);
   image(hrH,0,0);
   pop();
 
